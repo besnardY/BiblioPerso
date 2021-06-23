@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "BiblioPerso",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
