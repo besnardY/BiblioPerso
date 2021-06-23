@@ -1,0 +1,7 @@
+{
+  "name": "BiblioPerso",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
