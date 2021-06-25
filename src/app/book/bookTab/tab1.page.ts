@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { Component } from '@angular/core';
 
-import { Book } from '../models/book.model';
+import { Book } from '../../models/book.model';
 
 @Component({
   selector: 'app-tab1',
@@ -18,6 +18,7 @@ export class Tab1Page {
     {id: '1234', title: 'livre3', author: 'eux', categories:['action', 'aventure'], release:'15/03/1990',
     borrowing: false}
   ];
+  icon = '';
   constructor() {}
 
 
