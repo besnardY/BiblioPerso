@@ -1,9 +1,8 @@
-<div id="container">
+<div class="container">
   <mat-expansion-panel *ngFor="let item of list">
-    <mat-expansion-panel-header>
+    <mat-expansion-panel-header class="ion-align-items-center">
 
-      <mat-panel-title class="ion-align-items-center ">
-        <ion-icon name="book-outline"></ion-icon>
+      <mat-panel-title >
         {{item.title}}
       </mat-panel-title>
 
@@ -12,36 +11,6 @@
       </mat-panel-description>
 
     </mat-expansion-panel-header>
-    <ion-grid>
-
-      <ion-row>
-        <ion-col [size]="12">Title: {{item.title}}</ion-col>
-        <ion-col [size]="6">Author: {{item.author}}</ion-col>
-        <ion-col [size]="6">Release: {{item.release}}</ion-col>
-      </ion-row>
-
-      <ion-row class="ion-align-items-center">
-        <ion-label>Categories:</ion-label>
-        <ion-chip *ngFor="let cat of item.categories" color="primary">
-          <ion-label color="light">{{cat}}</ion-label>
-        </ion-chip>
-      </ion-row>
-
-      <ion-row *ngIf="item.volume !== undefined" class="ion-align-items-center">
-        <ion-label>Volume:</ion-label>
-        <ion-chip *ngFor="let vol of item.volume" color="primary">
-          <ion-label color="light">{{vol}}</ion-label>
-        </ion-chip>
-      </ion-row>
-
-      <ion-grid *ngIf="item.borrowing === true">
-        <ion-row>
-          <ion-col [size]="12">Borrowing by : {{item.borrowerName}} </ion-col>
-          <ion-col [size]="12">le : {{item.borrowingDate}}</ion-col>
-        </ion-row>
-      </ion-grid>
-
-    </ion-grid>
-
+    <app-book-list-prop [item]="item"></app-book-list-prop>
   </mat-expansion-panel>
 </div>

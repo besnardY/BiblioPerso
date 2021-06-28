@@ -9,6 +9,8 @@ import { ExploreContainerComponent } from './explore-container.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { BookListPropComponent } from '../book/components/book-list-prop/book-list-prop.component';
+
 
 
 
@@ -17,7 +19,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
   imports: [ CommonModule, FormsModule, IonicModule,  MatExpansionModule,
     MatIconModule,
     MatGridListModule,],
-  declarations: [ExploreContainerComponent],
+  declarations: [ExploreContainerComponent,BookListPropComponent ],
   exports: [ExploreContainerComponent]
 })
 export class ExploreContainerComponentModule {}

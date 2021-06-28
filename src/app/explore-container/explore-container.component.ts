@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Book } from '../models/book.model';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ExploreContainerComponent implements OnInit {
   @Input() name: string;
-  @Input() list: Array<any>;
+  @Input() list: Array<Book>;
   @Input() icon: string;
 
   constructor() { }

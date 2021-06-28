@@ -1,0 +1,85 @@
+<!-- <form #nexBook="ngForm" (ngSubmit)="addNewBook(nexBook)" >
+
+<app-search-media (datasBook)="getNewBook($event)"></app-search-media>
+
+
+  <ion-item>
+    <ion-input
+    type="text"
+    id="title"
+    class="form-control"
+    name="title"
+    #title="ngModel"
+	[(ngModel)]="data.title"
+	required
+  >
+    </ion-input>
+  </ion-item>
+  <div style="color:red"
+    *ngIf="title.errors && (title.dirty || title.touched)">
+    <p *ngIf="title.errors.required">
+        Course Name is required
+    </p>
+</div> -->
+
+  <!-- <ion-item>
+    <ion-input type="text" name="subtitle" formControlName="subtitle" placeholder="Enter name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" name="author" formControlName="author"  placeholder="Enter author"></ion-input>
+  </ion-item> -->
+
+  <!-- <ion-item>
+    <ion-input type="text" name="style" formControlName="style" placeholder="Enter author"></ion-input>
+    <div *ngIf="bookForm.controls.style.invalid && (bookForm.controls.style.dirty || bookForm.controls.style.touched)" class="alert alert-danger">
+      <div *ngIf="bookForm.controls.style.errors.required">
+        Name is required.
+      </div>
+  </div>
+  </ion-item> -->
+<!--
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+       Choose type
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select [compareWith]="type" formControlName="style" interface="action-sheet" >
+        <ion-select-option *ngFor="let item of type" [value]="item.name" >{{item.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list formArrayName="categories">
+    <ion-list-header>
+      <ion-label>
+        Choose categories
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item [formGroupName]="i" *ngFor="let entry of categories; let i = index">
+      <ion-label>{{entry.val}}</ion-label>
+      <ion-checkbox slot="end" formControlName="checked" ></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-input type="date"  formControlName="release" placeholder="Enter author"></ion-input>
+  </ion-item> -->
+
+  <!-- <div class="col-xs-12">
+          <button
+            class="btn btn-success"
+            type="submit">Add</button>
+          <button
+            class="btn btn-danger"
+            type="button">Delete</button>
+          <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+        </div>
+
+</form> -->

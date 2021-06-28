@@ -1,0 +1,10 @@
+<div class="container">
+
+<ion-item>
+  <ion-input type="search" debounce="300" (ionChange)="onKeyUp($event)" placeholder="chercher un titre"></ion-input>
+</ion-item>
+<div class="collection" *ngIf="isItemAvailable">
+  <a class="collection-item" *ngFor="let item of book" (click)="setBook(item)">{{item.volumeInfo.title}} </a>
+</div>
+
+</div>
