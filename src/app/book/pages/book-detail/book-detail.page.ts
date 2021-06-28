@@ -1,5 +1,7 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Book } from 'src/app/models/book.model';
 
 @Component({
   selector: 'app-book-detail',
@@ -7,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-detail.page.scss'],
 })
 export class BookDetailPage implements OnInit {
-
-  constructor() { }
+ book: Book;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+
   }
 
 
