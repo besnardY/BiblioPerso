@@ -1,7 +1,7 @@
 import { Injectable, } from '@angular/core';
-import {delay , tap} from 'rxjs/operators';
-import { Observable, of, } from 'rxjs';
+
 import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   isLog = false;
   redirectUrl: string;
+  currentUser: string;
 
   constructor(private aFireAuth: AngularFireAuth) { }
 
   login(login: string, pw: string): Promise<any>{
-    return this.aFireAuth.signInWithEmailAndPassword(login, pw);
+    return this.aFireAuth.signInWithEmailAndPassword(login, pw).then(cred => {
+      this.currentUser = cred.user.uid;
+    });
   }
 
   createUser(login: string, pw: string): Promise<any>{

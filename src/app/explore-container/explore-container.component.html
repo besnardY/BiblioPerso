@@ -1,16 +1,16 @@
-<div class="container">
-  <mat-expansion-panel *ngFor="let item of list">
-    <mat-expansion-panel-header class="ion-align-items-center">
+<div class="container" >
+ <div *ngIf="list.length > 0">
 
-      <mat-panel-title >
-        {{item.title}}
-      </mat-panel-title>
+    <mat-expansion-panel *ngFor="let item of list" >
+      <mat-expansion-panel-header class="ion-align-items-center">
 
-      <mat-panel-description>
-        {{item.author}}
-      </mat-panel-description>
+        <mat-panel-title >
+          {{item.title}}
+        </mat-panel-title>
 
-    </mat-expansion-panel-header>
-    <app-book-list-prop [item]="item"></app-book-list-prop>
-  </mat-expansion-panel>
+      </mat-expansion-panel-header>
+      <app-book-list-prop [item]="item"></app-book-list-prop>
+    </mat-expansion-panel>
+ </div>
+  <p *ngIf="!list" class="center-align">No items to display</p>
 </div>

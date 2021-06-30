@@ -17,11 +17,12 @@ export class NewBookPage implements OnInit {
     this.newBook = {
       id: '',
       title: '',
-      author: '',
+      authors: [],
       style: '',
       categories: [],
       release: '',
       borrowing: false,
     };
   }
+
 }

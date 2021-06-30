@@ -1,6 +1,8 @@
 <form [formGroup]="bookForm" (ngSubmit)="addNewBook()" >
   <app-search-media (datasBook)="getNewBook($event)"></app-search-media>
 
+    <ion-input type="hidden" name="image" formControlName="image"></ion-input>
+    
   <ion-item>
     <ion-input type="text" name="title" formControlName="title"  placeholder="Enter title"></ion-input>
   </ion-item>

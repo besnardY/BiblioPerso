@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BookService } from 'src/app/services/book.service';
 
 import { Book } from '../../models/book.model';
 
@@ -10,17 +11,18 @@ import { Book } from '../../models/book.model';
 })
 export class Tab1Page {
 
-  bookList: Array<Book> = [
-    {id: '1234', title: 'Le seigneur des anneaux', author: 'David A. Vise', image: 'http://books.google.com/books/content?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE70O4p_T-uO0pOCeMgQKAoLlyTEpI1PpVY02IH8Eqx95XM0u1yFlSIDCV-YGUKI1mjTrrHEfKsQjvPRHiKkZFDvkDG3o4mmB5hJ6cGKoNpxlqmbfOJAl8sBDsE_mmakOLYDErv2u&source=gbs_api',volume: [1,2,3,5], categories:['action', 'aventure', 'Science-fiction'], style: 'Roman' ,release:'15/03/1990',
-    borrowing: true, borrowerName:'Jean-dupont', borrowingDate:'15/03/1990'},
-    {id: '1234', title: 'livre2', author: 'toi', image: 'http://books.google.com/books/content?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE70O4p_T-uO0pOCeMgQKAoLlyTEpI1PpVY02IH8Eqx95XM0u1yFlSIDCV-YGUKI1mjTrrHEfKsQjvPRHiKkZFDvkDG3o4mmB5hJ6cGKoNpxlqmbfOJAl8sBDsE_mmakOLYDErv2u&source=gbs_api', volume: [1,2,3,5], categories:['action', 'aventure'], style: 'Roman', release:'15/03/1990',
-    borrowing: false},
-    {id: '1234', title: 'livre3', author: 'eux', categories:['action', 'aventure'], style: 'Roman', release:'15/03/1990',
-    borrowing: false}
-  ];
+  bookList: Array<Book>;
   icon = '';
-  constructor() {}
 
-
+  constructor(private bookServ: BookService) {
+    this.bookServ.getAllBook().subscribe((datas => {
+      if(datas !== undefined){
+        this.bookList = datas;
+      }else{
+        this.bookList = [];
+      }
+      console.log(datas);
+    }));
+  }
 
 }

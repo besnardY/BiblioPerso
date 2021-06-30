@@ -6,6 +6,7 @@ import { Book } from 'src/app/models/book.model';
 // Interface Import
 import * as CatMapping from 'src/app/models/catBook.model';
 import * as TypeMapping from 'src/app/models/typeBook.model';
+import { BookService } from 'src/app/services/book.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class BookFormComponent implements OnInit {
   submitted = false;
 
 
-  constructor() { }
+  constructor(private bookServ: BookService) { }
+
 
   ngOnInit() {
     this.categories = CatMapping.catMap;
@@ -29,30 +31,37 @@ export class BookFormComponent implements OnInit {
 
     this.bookForm = new FormGroup({
       title: new FormControl(this.data.title, [Validators.required]),
-      authors: new FormControl(this.data.author, [Validators.required]),
+      authors: new FormControl(this.data.authors, [Validators.required]),
       style: new FormControl(this.data.style, [Validators.required]),
       categories: new FormControl(this.data.categories, [Validators.required]),
       publishedDate: new FormControl(this.data.release),
+      image: new FormControl(this.data.image),
     });
 
   }
 
+  // book form control shorcut
   get f(){
     return this.bookForm.controls;
   }
 
+  // submited function form
   public addNewBook(){
     this.submitted = true;
     if (this.bookForm.invalid) {
       return;
     }
+    this.bookServ.addBook(this.bookForm.value);
   }
 
-  public getNewBook(book: Book){
-    this.bookForm.patchValue(book);
+  //get book selected in auto-completed
+  public getNewBook(book){
+    const IMAGE = book.imageLinks? book.imageLinks.thumbnail : '../assets/icon/book.png';
+    this.bookForm.patchValue(book, book.image = IMAGE);
+    console.log(book);
 
   }
-
+  //Clear book form
   public onClear(){
     this.bookForm.reset();
   }

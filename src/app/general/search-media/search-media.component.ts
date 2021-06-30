@@ -40,6 +40,5 @@ export class SearchMediaComponent implements OnInit {
       },
       (err) => console.log(err)
     );
-    console.log(this.book);
   }
 }

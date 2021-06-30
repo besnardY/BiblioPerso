@@ -1,7 +1,7 @@
 export class Book{
   id: string;
   title: string;
-  author: string;
+  authors: Array<string>;
   image?: string;
   style: string;
   categories: Array<string>;
