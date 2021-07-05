@@ -70,6 +70,7 @@ export class BookService {
   }
 
   updateBook(b: Book): Promise<any> {
+
     return this.userDoc.collection('/book').doc(this.selectedBook.ID).update({
       authors: b.authors,
       categories: b.categories,
