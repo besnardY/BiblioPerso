@@ -5,7 +5,7 @@ export class Book{
   image?: string;
   style: string;
   categories: Array<string>;
-  release?: string;
+  publishedDate?: string;
   volume?: Array<number>;
   borrowing: boolean;
   borrowerName?: string;

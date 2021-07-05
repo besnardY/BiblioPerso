@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { BookDetailPageRoutingModule } from './book-detail-routing.module';
+import { DetailBookPageRoutingModule } from './detail-book-routing.module';
 
-import { BookDetailPage } from './book-detail.page';
+import { DetailBookPage } from './detail-book.page';
 import { BookListPropComponent } from '../../components/book-list-prop/book-list-prop.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { BookListPropComponent } from '../../components/book-list-prop/book-list
     CommonModule,
     FormsModule,
     IonicModule,
-    BookDetailPageRoutingModule
+    DetailBookPageRoutingModule
   ],
-  declarations: [BookDetailPage, BookListPropComponent]
+  declarations: [DetailBookPage, BookListPropComponent]
 })
-export class BookDetailPageModule {}
+export class DetailBookPageModule {}

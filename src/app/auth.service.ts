@@ -1,6 +1,7 @@
 import { Injectable, } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
+import { UserService } from './services/user.service';
 
 
 @Injectable({
@@ -9,15 +10,17 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   isLog = false;
   redirectUrl: string;
-  currentUser: string;
+  connectedUser: string;
 
-  constructor(private aFireAuth: AngularFireAuth) { }
+  constructor(private aFireAuth: AngularFireAuth, private userServ: UserService) {}
 
   login(login: string, pw: string): Promise<any>{
     return this.aFireAuth.signInWithEmailAndPassword(login, pw).then(cred => {
-      this.currentUser = cred.user.uid;
+      this.userServ.getUser(cred.user.uid);
     });
   }
+
+ 
 
   createUser(login: string, pw: string): Promise<any>{
     return this.aFireAuth.createUserWithEmailAndPassword(login, pw);

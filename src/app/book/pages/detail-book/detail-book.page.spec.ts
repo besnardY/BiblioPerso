@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { BookFormTemplateComponent } from './book-form-template.component';
+import { DetailBookPage } from './detail-book.page';
 
-describe('BookFormTemplateComponent', () => {
-  let component: BookFormTemplateComponent;
-  let fixture: ComponentFixture<BookFormTemplateComponent>;
+describe('DetailBookPage', () => {
+  let component: DetailBookPage;
+  let fixture: ComponentFixture<DetailBookPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookFormTemplateComponent ],
+      declarations: [ DetailBookPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BookFormTemplateComponent);
+    fixture = TestBed.createComponent(DetailBookPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

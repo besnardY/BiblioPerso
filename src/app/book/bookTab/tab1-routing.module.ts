@@ -1,17 +1,21 @@
+/* eslint-disable max-len */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from 'src/app/auth.guard';
 import { Tab1Page } from './tab1.page';
 
 const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
+    children: [
+
+      // {path: 'new-book', loadChildren: () => import('../pages/new-book/new-book.page').then(m => m.NewBookPage)},
+    ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class Tab1PageRoutingModule {}

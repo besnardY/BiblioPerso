@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent,},
   {
-    path: '', canActivate: [AuthGuard],
+    path: '',canActivate: [AuthGuard],
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
@@ -14,8 +15,8 @@ const routes: Routes = [
     loadChildren: () => import('./book/pages/new-book/new-book.module').then( m => m.NewBookPageModule)
   },
   {
-    path: 'book-detail',
-    loadChildren: () => import('./book/pages/book-detail/book-detail.module').then( m => m.BookDetailPageModule)
+    path: 'detail-book',
+    loadChildren: () => import('./book/pages/detail-book/detail-book.module').then( m => m.DetailBookPageModule)
   },
 
 ];

@@ -14,6 +14,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
+
 @NgModule({
   imports: [
     IonicModule,
@@ -26,6 +27,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatGridListModule,
 
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page,]
 })
 export class Tab1PageModule {}

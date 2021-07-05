@@ -20,7 +20,7 @@ export class NewBookPage implements OnInit {
       authors: [],
       style: '',
       categories: [],
-      release: '',
+      publishedDate: '',
       borrowing: false,
     };
   }

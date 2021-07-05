@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>detailBook</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <div class="container">
+    <ion-row style="justify-content: center;">
+      <ion-img  [src]="book.image" ></ion-img>
+    </ion-row>
+
+      <p>Author:
+        <span *ngFor="let author of book.authors" > {{author}}, </span>
+      </p>
+
+    <p>Published: {{book.publishedDate | date: 'dd MMM yyyy'}}</p>
+
+    <ion-row *ngIf="book.borrowing === true">
+      <ion-col size="12">Borrowing by : {{book.borrowerName}}</ion-col>
+      <ion-col size="12">le : {{book.borrowingDate}}</ion-col>
+    </ion-row>
+
+
+    <ion-row class="ion-align-items-center">
+      <ion-label>Categories:</ion-label>
+      <ion-chip *ngFor="let cat of book.categories" >
+        <ion-label >{{cat}}</ion-label>
+      </ion-chip>
+    </ion-row>
+
+    <ion-row *ngIf="book.volume !== undefined" class="ion-align-items-center">
+      <ion-label>Volume:</ion-label>
+      <ion-chip *ngFor="let vol of book.volume" >
+        <ion-label >{{vol}}</ion-label>
+      </ion-chip>
+    </ion-row>
+  </div>
+</ion-content>

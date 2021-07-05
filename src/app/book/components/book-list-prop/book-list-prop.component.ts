@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book.model';
 
+
 @Component({
   selector: 'app-book-list-prop',
   templateUrl: './book-list-prop.component.html',
@@ -12,5 +13,7 @@ export class BookListPropComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+
+
 
 }

@@ -1,7 +1,7 @@
 <div class="container" >
- <div *ngIf="list.length > 0">
-
-    <mat-expansion-panel *ngFor="let item of list" >
+ <div *ngIf="list">
+<mat-accordion >
+    <mat-expansion-panel *ngFor="let item of list">
       <mat-expansion-panel-header class="ion-align-items-center">
 
         <mat-panel-title >
@@ -10,7 +10,12 @@
 
       </mat-expansion-panel-header>
       <app-book-list-prop [item]="item"></app-book-list-prop>
+      <ion-row>
+        <ion-col size="12" class="ion-text-center"><a (click)="selectBook(item)">More info</a>
+        </ion-col>
+      </ion-row>
     </mat-expansion-panel>
+  </mat-accordion>
  </div>
   <p *ngIf="!list" class="center-align">No items to display</p>
 </div>

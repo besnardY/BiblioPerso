@@ -34,7 +34,7 @@ export class BookFormComponent implements OnInit {
       authors: new FormControl(this.data.authors, [Validators.required]),
       style: new FormControl(this.data.style, [Validators.required]),
       categories: new FormControl(this.data.categories, [Validators.required]),
-      publishedDate: new FormControl(this.data.release),
+      publishedDate: new FormControl(this.data.publishedDate),
       image: new FormControl(this.data.image),
     });
 
