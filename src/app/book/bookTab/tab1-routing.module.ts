@@ -8,8 +8,6 @@ const routes: Routes = [
     path: '',
     component: Tab1Page,
     children: [
-
-      // {path: 'new-book', loadChildren: () => import('../pages/new-book/new-book.page').then(m => m.NewBookPage)},
     ],
   },
 ];

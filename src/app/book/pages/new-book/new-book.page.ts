@@ -10,6 +10,7 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class NewBookPage implements OnInit {
   newBook: Book;
+  buttonText = 'Add';
 
   constructor(private bookServ: BookService) {}
 

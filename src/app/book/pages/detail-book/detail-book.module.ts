@@ -8,6 +8,7 @@ import { DetailBookPageRoutingModule } from './detail-book-routing.module';
 
 import { DetailBookPage } from './detail-book.page';
 import { BookListPropComponent } from '../../components/book-list-prop/book-list-prop.component';
+import { SearchMediaComponent } from 'src/app/general/search-media/search-media.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { BookListPropComponent } from '../../components/book-list-prop/book-list
     IonicModule,
     DetailBookPageRoutingModule
   ],
-  declarations: [DetailBookPage, BookListPropComponent]
+  declarations: [DetailBookPage, BookListPropComponent, SearchMediaComponent]
 })
 export class DetailBookPageModule {}

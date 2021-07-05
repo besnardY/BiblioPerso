@@ -39,15 +39,20 @@
         <ion-select-option *ngFor="let item of categories" [value]="item.val" >{{item.val}}</ion-select-option>
       </ion-select>
     </ion-item>
+    <div *ngIf="submitted && f.categories.errors" class="alert">
+      <div *ngIf="f.categories.errors.required">
+        Categories is required.
+      </div>
+    </div>
 
   <ion-item>
-    <ion-input type="date"  formControlName="publishedDate" placeholder="Enter author"></ion-input>
+    <ion-input type="date"  formControlName="publishedDate" ></ion-input>
   </ion-item>
 
   <div class="col-xs-12">
     <button
       class="btn btn-success"
-      type="submit">Add</button>
+      type="submit">{{buttonText}}</button>
     <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
   </div>
 

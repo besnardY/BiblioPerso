@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/models/book.model';
 
 
@@ -16,13 +17,15 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class BookFormComponent implements OnInit {
   @Input() data: Book;
+  @Input() buttonText: string;
+
   categories: Array<CatMapping.Categories>;
   type: Array<TypeMapping.BookType>;
   bookForm: FormGroup;
   submitted = false;
 
 
-  constructor(private bookServ: BookService) { }
+  constructor(private bookServ: BookService, private router: Router) { }
 
 
   ngOnInit() {
@@ -47,11 +50,20 @@ export class BookFormComponent implements OnInit {
 
   // submited function form
   public addNewBook(){
+
     this.submitted = true;
     if (this.bookForm.invalid) {
       return;
     }
-    this.bookServ.addBook(this.bookForm.value);
+
+    if(this.buttonText === 'Add'){
+      this.bookServ.addBook(this.bookForm.value);
+      this.router.navigate(['tabs/tab1']);
+    }else if(this.buttonText === 'Update'){
+      this.bookServ.updateBook(this.bookForm.value);
+      this.router.navigate(['tabs/tab1']);
+    }
+
   }
 
   //get book selected in auto-completed

@@ -23,7 +23,6 @@ export class BookService {
   apiKey = '';
   selectedBook;
 
-
   constructor(
     private http: HttpClient,
     private firestore: AngularFirestore,
@@ -31,28 +30,28 @@ export class BookService {
   ) {
     this.userDoc = this.userServ.userDoc;
     console.log(this.userDoc);
-
   }
 
   getAllBook() {
-    return this.userDoc.collection('/book', ref => ref.orderBy('title')).snapshotChanges().pipe(
-      map((actions) =>
-      actions.map((a) => {
-        const DATAS = a.payload.doc.data() as Book;
-        const ID = a.payload.doc.id;
-        return { ID, ...DATAS };
-      })
-      )
-      // return this.bookCollectionRef
-    );
+    return this.userDoc
+      .collection('/book', (ref) => ref.orderBy('title'))
+      .snapshotChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const DATAS = a.payload.doc.data() as Book;
+            const ID = a.payload.doc.id;
+            return { ID, ...DATAS };
+          })
+        )
+      );
   }
-
 
   defineBook(book: Book) {
     this.selectedBook = book;
   }
 
-  getBook(){
+  getBook() {
     return this.selectedBook;
   }
 
@@ -68,5 +67,20 @@ export class BookService {
 
   addBook(book: Book): Promise<any> {
     return this.userDoc.collection('/book').add(book);
+  }
+
+  updateBook(b: Book): Promise<any> {
+    return this.userDoc.collection('/book').doc(this.selectedBook.ID).update({
+      authors: b.authors,
+      categories: b.categories,
+      image: b.image,
+      title: b.title,
+      publishedDate: b.publishedDate,
+      style: b.style,
+    });
+  }
+
+  deleteBook(): Promise<any>{
+    return this.userDoc.collection('/book').doc(this.selectedBook.ID).delete();
   }
 }
