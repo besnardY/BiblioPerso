@@ -1,46 +1,43 @@
 <div class="container">
 
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Page de connexion</ion-card-title>
-    <ion-card-subtitle>{{message}}</ion-card-subtitle>
-  </ion-card-header>
+  <ion-card>
+    <ion-card-header class="center-align">
+      <ion-card-title>Page de connexion</ion-card-title>
+      <ion-card-subtitle>{{message}}</ion-card-subtitle>
+    </ion-card-header>
 
-  <ion-card-content>
-   <form [formGroup]="loginForm" *ngIf="!authServ.isLog" >
-    <ion-item>
-      <ion-input class="form-control" type="email" name="login" formControlName="login"  placeholder="Log"></ion-input>
-    </ion-item>
-  <div *ngIf="submitted && f.login.errors" class="alert">
-    <div *ngIf="f.login.errors.required">
-      Title is required.
-    </div>
-    <div *ngIf="f.login.errors.pattern">
-     abs@abs.abs
-    </div>
-  </div>
+    <ion-card-content>
+      <form [formGroup]="loginForm" *ngIf="!authServ.isLog">
+        <ion-item>
+          <ion-input class="form-control" type="email" name="login" formControlName="login" placeholder="Email">
+          </ion-input>
+        </ion-item>
+        <div *ngIf="submitted && f.login.errors" class="error">
+          <div *ngIf="f.login.errors.required" >
+            Email is required.
+          </div>
+          <div *ngIf="f.login.errors.pattern">
+           Format xyz@xyz.xyz
+          </div>
+        </div>
 
-    <ion-item>
-      <ion-input class="form-control" type="password" name="pw" formControlName="pw"></ion-input>
-    </ion-item>
-  <div *ngIf="submitted && f.pw.errors" class="alert">
-    <div *ngIf="f.pw.errors.required">
-      password is required.
-    </div>
-    <div *ngIf="f.pw.errors.minlength">
-      password minLength = 6
-    </div>
-  </div>
-  <ion-row class="ion-justify-content-around ion-align-items-center">
-    <button
-      class="btn btn-success"
-      type="submit" (click)="loginUser(loginForm.value)">Login</button>
-      <span> Or </span>
-      <button
-      class="btn amber darken-1" (click)='createUser(loginForm.value)'
-      >Sign in</button>
-  </ion-row>
-   </form>
-  </ion-card-content>
-</ion-card>
+        <ion-item>
+          <ion-input class="form-control" type="password" name="pw" formControlName="pw"></ion-input>
+        </ion-item>
+        <div *ngIf="submitted && f.pw.errors" class="error">
+          <div *ngIf="f.pw.errors.required">
+            Password is required.
+          </div>
+          <div *ngIf="f.pw.errors.minlength">
+            The password must be 6 characters min long
+          </div>
+        </div>
+        <ion-row class="ion-justify-content-around ion-align-items-center">
+          <button class="btn btn-success" type="submit" (click)="loginUser(loginForm.value)">Login</button>
+          <span> Or </span>
+          <button class="btn amber darken-1" (click)='createUser(loginForm.value)'>Sign in</button>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </div>

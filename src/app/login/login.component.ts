@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   pw: string;
   submitted = false;
 
-  constructor(public authServ: AuthService, private router: Router) {}
+  constructor(public authServ: AuthService, private router: Router, private ionLoader: LoaderService) {}
 
   ngOnInit(): void {
     this.setMessage();
@@ -40,19 +41,18 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(values) {
-    this.message = 'Connection, please wait ...';
     this.submitted = true;
     if (this.loginForm.invalid) {
       this.message = '';
       return;
     }
 
+    this.ionLoader.showLoader();
     this.authServ.login(values.login, values.pw).then(() => {
       this.authServ.isLog = true;
       this.setMessage();
-        const REDIRECT = this.authServ.redirectUrl
-          ? this.authServ.redirectUrl
-          : 'tabs/tab1';
+        const REDIRECT = this.authServ.redirectUrl ? this.authServ.redirectUrl : 'tabs/tab1';
+        this.ionLoader.hideLoader();
         this.router.navigate([REDIRECT]);
     },err => {
       this.authServ.isLog = false;
