@@ -51,23 +51,28 @@ export class BookFormComponent implements OnInit {
     }
     const author = this.bookForm.value.authors;
 
-    if (this.buttonText === 'Add') {
-
-      if (typeof author === 'string') {
-        this.bookForm.value.authors = author.split(',');
-      }
-
-      this.bookServ.addBook(this.bookForm.value);
-      this.router.navigate(['tabs/tab1']);
-    } else if (this.buttonText === 'Update') {
-
-      if (typeof author === 'string') {
-        this.bookForm.value.authors = author.split(',');
-      }
-
-      this.bookServ.updateBook(this.bookForm.value);
-      this.router.navigate(['tabs/tab1']);
+    // If only one authors make an Array of authors
+    if (typeof author === 'string') {
+      this.bookForm.value.authors = author.split(',');
     }
+
+    switch(this.buttonText) {
+      case 'Add': {
+        this.bookServ.addBook(this.bookForm.value);
+        this.router.navigate(['tabs/tab1']);
+         break;
+      }
+      case 'Update': {
+        this.bookServ.updateBook(this.bookForm.value);
+        this.router.navigate(['tabs/tab1']);
+         break;
+      }
+      default: {
+        console.log('An error has occured');
+         break;
+      }
+    }
+
   }
 
   //get book selected in auto-completed

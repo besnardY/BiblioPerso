@@ -12,7 +12,8 @@ export class LoaderService {
 
     this.loader.create({
       message: 'Please wait...',
-      spinner: 'bubbles'
+      spinner: 'bubbles',
+      duration: 1000
     }).then((res) => {
       res.present();
     });

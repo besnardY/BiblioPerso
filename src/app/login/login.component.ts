@@ -47,16 +47,16 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.ionLoader.showLoader();
     this.authServ.login(values.login, values.pw).then(() => {
       this.authServ.isLog = true;
       this.setMessage();
         const REDIRECT = this.authServ.redirectUrl ? this.authServ.redirectUrl : 'tabs/tab1';
-        this.ionLoader.hideLoader();
         this.router.navigate([REDIRECT]);
     },err => {
+
       this.authServ.isLog = false;
       this.message = err.message;
+      console.log('coucou');
     });
   }
 

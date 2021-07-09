@@ -12,7 +12,7 @@ export class AuthService {
   redirectUrl: string;
   connectedUser: string;
 
-  constructor(private aFireAuth: AngularFireAuth, private userServ: UserService) {}
+  constructor(public aFireAuth: AngularFireAuth, private userServ: UserService) {}
 
   login(login: string, pw: string): Promise<any>{
     return this.aFireAuth.signInWithEmailAndPassword(login, pw).then(cred => {
@@ -20,13 +20,13 @@ export class AuthService {
     });
   }
 
- 
 
   createUser(login: string, pw: string): Promise<any>{
     return this.aFireAuth.createUserWithEmailAndPassword(login, pw);
   }
 
   logOut(): Promise<any>{
+    this.isLog = false;
     return this.aFireAuth.signOut();
   }
 }
