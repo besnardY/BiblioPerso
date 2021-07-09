@@ -81,6 +81,15 @@ export class BookService {
     });
   }
 
+  borrowBook(borrow): Promise<any>{
+
+    return this.userDoc.collection('/book').doc(this.selectedBook.ID).update({
+      borrowing: true,
+      borrowerName: borrow.borrowerName,
+      borrowingDate: borrow.borrowingDate
+    });
+  }
+
   deleteBook(): Promise<any>{
     return this.userDoc.collection('/book').doc(this.selectedBook.ID).delete();
   }

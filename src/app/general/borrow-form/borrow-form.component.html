@@ -1,0 +1,28 @@
+<form [formGroup]="borrowForm" (ngSubmit)="addNewElement()" >
+
+  <ion-input type="hidden" name="item" formControlName="item"></ion-input>
+
+  <ion-item>
+    <ion-input type="text" name="borrowerName" formControlName="borrowerName"  placeholder="Enter name of borrower"></ion-input>
+  </ion-item>
+<div *ngIf="submitted && f.borrowerName.errors" class="alert">
+  <div *ngIf="f.borrowerName.errors.required">
+    Name is required.
+  </div>
+</div>
+
+  <ion-item>
+    <ion-input type="date" name="borrowingDate" formControlName="borrowingDate" ></ion-input>
+  </ion-item>
+  <div *ngIf="submitted && f.borrowingDate.errors" class="alert">
+    <div *ngIf="f.borrowingDate.errors.required">
+      Date is required.
+    </div>
+  </div>
+
+  <div class="col-xs-12">
+    <button
+      class="btn btn-success"
+      type="submit">Submit</button>
+  </div>
+</form>

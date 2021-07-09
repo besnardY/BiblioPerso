@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'edit-book',
     loadChildren: () => import('./book/pages/edit-book/edit-book.module').then( m => m.EditBookPageModule)
   },
+  {
+    path: 'borrow-book',
+    loadChildren: () => import('./book/pages/borrow-book/borrow-book.module').then( m => m.BorrowBookPageModule)
+  },
 
 ];
 @NgModule({

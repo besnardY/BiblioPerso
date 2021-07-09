@@ -12,7 +12,7 @@
 
   <ion-row *ngIf="item.borrowing === true">
     <ion-col size="12">Borrowing by : {{item.borrowerName}}</ion-col>
-    <ion-col size="12">le : {{item.borrowingDate}}</ion-col>
+    <ion-col size="12">le : {{item.borrowingDate| date: 'dd MMM yyyy'}}</ion-col>
   </ion-row>
 
 </ion-grid>
