@@ -62,7 +62,7 @@
       <ion-item *ngIf="book.style === 'Manga' || book.style === 'BD'" >
         <ion-row class="ion-align-items-center">
           <ion-label>Volume:</ion-label>
-          <a href="#" [routerLink]="['/add-volume']" routerLinkActive="router-link-active" ><ion-icon size="large" name="add-circle-outline"></ion-icon></a>
+          <ion-fab-button size="small" [routerLink]="['/add-volume']" routerLinkActive="router-link-active" class="ion-align-items-center"><ion-icon size="large" name="add-circle-outline"></ion-icon></ion-fab-button>
           <div *ngIf="book.volume !== undefined" >
             <ion-chip *ngFor="let vol of book.volume">
               <ion-label>{{vol}}</ion-label>

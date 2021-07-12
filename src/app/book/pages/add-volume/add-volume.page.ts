@@ -21,6 +21,7 @@ export class AddVolumePage implements OnInit {
     this.book = this.bookServ.getBook()
     if(this.book.volume !== undefined){
       this.volArr = this.book.volume;
+      this.sortedArray = this.volArr.sort((n1,n2) => n1 - n2);
     }
     this.volumeForm = new FormGroup({
       vol: new FormControl('')
