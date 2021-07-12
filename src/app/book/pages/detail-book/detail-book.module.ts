@@ -10,12 +10,14 @@ import { DetailBookPage } from './detail-book.page';
 import { BookListPropComponent } from '../../components/book-list-prop/book-list-prop.component';
 import { SearchMediaComponent } from 'src/app/general/search-media/search-media.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailBookPageRoutingModule
+    DetailBookPageRoutingModule,
+
   ],
   declarations: [DetailBookPage, BookListPropComponent, SearchMediaComponent]
 })

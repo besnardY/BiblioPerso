@@ -90,6 +90,12 @@ export class BookService {
     });
   }
 
+  addVolumeBook(vol: Array<number>): Promise<any>{
+    return this.userDoc.collection('/book').doc(this.selectedBook.ID).update({
+      volume: vol
+    });
+  }
+
   deleteBook(): Promise<any>{
     return this.userDoc.collection('/book').doc(this.selectedBook.ID).delete();
   }

@@ -57,14 +57,20 @@
         </ion-row>
       </ion-item>
 
-      <ion-item *ngIf="book.volume !== undefined">
+      <!-- <app-add-volume [volume]="book.volume"></app-add-volume> -->
+
+      <ion-item *ngIf="book.style === 'Manga' || book.style === 'BD'" >
         <ion-row class="ion-align-items-center">
           <ion-label>Volume:</ion-label>
-          <ion-chip *ngFor="let vol of book.volume">
-            <ion-label>{{vol}}</ion-label>
-          </ion-chip>
+          <a href="#" [routerLink]="['/add-volume']" routerLinkActive="router-link-active" ><ion-icon size="large" name="add-circle-outline"></ion-icon></a>
+          <div *ngIf="book.volume !== undefined" >
+            <ion-chip *ngFor="let vol of book.volume">
+              <ion-label>{{vol}}</ion-label>
+            </ion-chip>
+          </div>
         </ion-row>
       </ion-item>
+
 
       <ion-item>
         <ion-label>Borrowing: </ion-label>
