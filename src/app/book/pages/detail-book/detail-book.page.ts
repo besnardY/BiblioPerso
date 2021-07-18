@@ -17,8 +17,13 @@ export class DetailBookPage implements OnInit {
     this.book = this.bookServ.getBook();
   }
 
-  deleteBook(){
+  deleteBook(): void{
     this.bookServ.deleteBook();
+    this.router.navigate(['tabs/tab1']);
+  }
+
+  giveBackBook(): void{
+    this.bookServ.backBook();
     this.router.navigate(['tabs/tab1']);
   }
 

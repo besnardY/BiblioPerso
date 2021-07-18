@@ -90,6 +90,14 @@ export class BookService {
     });
   }
 
+  backBook(): Promise<any>{
+    return this.userDoc.collection('/book').doc(this.selectedBook.ID).update({
+      borrowing: false,
+      borrowerName: '',
+      borrowingDate: ''
+    });
+  }
+
   addVolumeBook(vol: Array<number>): Promise<any>{
     return this.userDoc.collection('/book').doc(this.selectedBook.ID).update({
       volume: vol

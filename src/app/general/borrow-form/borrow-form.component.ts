@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BookService } from 'src/app/services/book.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-borrow-form',
@@ -12,7 +13,7 @@ export class BorrowFormComponent implements OnInit {
   borrowForm: FormGroup;
   submitted = false;
 
-  constructor(private bookServ: BookService) { }
+  constructor(private bookServ: BookService, private router: Router) { }
 
   ngOnInit() { this.borrowForm = new FormGroup({
     item: new FormControl(this.element, [Validators.required]),
@@ -41,6 +42,7 @@ export class BorrowFormComponent implements OnInit {
     switch (element.item) {
       case 'book':
         this.bookServ.borrowBook(element);
+        this.router.navigate(['tabs/tab1']);
         break;
       case 'movie':
 
