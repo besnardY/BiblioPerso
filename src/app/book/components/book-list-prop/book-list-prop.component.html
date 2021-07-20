@@ -15,4 +15,9 @@
     <ion-col size="12">le : {{item.borrowingDate| date: 'dd MMM yyyy'}}</ion-col>
   </ion-row>
 
+  <ion-row>
+    <ion-col size="12" class="ion-text-center"><a (click)="selectBook(item)">More info</a>
+    </ion-col>
+  </ion-row>
+
 </ion-grid>

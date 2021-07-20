@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/models/book.model';
+import { BookService } from 'src/app/services/book.service';
 
 
 @Component({
@@ -10,10 +12,14 @@ import { Book } from 'src/app/models/book.model';
 export class BookListPropComponent implements OnInit {
   @Input() item: Book;
 
-  constructor() { }
+  constructor(private router: Router, private bookServ: BookService) { }
 
   ngOnInit() {}
 
+  selectBook(book: Book){
+    this.bookServ.defineBook(book);
+    this.router.navigate(['/detail-book']);
+  }
 
 
 }
