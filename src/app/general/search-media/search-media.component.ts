@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Book } from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
 import { EventEmitter } from '@angular/core';
@@ -12,6 +12,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class SearchMediaComponent implements OnInit {
   @Output() datasBook = new EventEmitter();
+  @Input() item: string;
   book: any;
   isItemAvailable = false;
 
@@ -34,11 +35,31 @@ export class SearchMediaComponent implements OnInit {
   }
 
   public search(term): void {
-    this.bookServ.searchBook(term).subscribe(
-      (datas) => {
-        this.book = datas.items;
-      },
-      (err) => console.log(err)
-    );
+
+    switch (this.item) {
+      case 'book':
+
+        this.bookServ.searchBook(term).subscribe(
+          (datas) => {
+            this.book = datas.items;
+          },
+          (err) => console.log(err)
+        );
+        break;
+      case 'movie':
+console.log('coucou');
+
+        // this.movieServ.searchBook(term).subscribe(
+        //   (datas) => {
+        //     this.book = datas.items;
+        //   },
+        //   (err) => console.log(err)
+        // );
+        break;
+
+
+      default:
+        break;
+    }
   }
 }

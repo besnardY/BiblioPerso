@@ -25,10 +25,15 @@ const routes: Routes = [
   {
     path: 'borrow-book',
     loadChildren: () => import('./book/pages/borrow-book/borrow-book.module').then( m => m.BorrowBookPageModule)
-  },  {
+  },
+  {
     path: 'add-volume',
     loadChildren: () => import('./book/pages/add-volume/add-volume.module').then( m => m.AddVolumePageModule)
   },
+  {
+    path: 'new-movie',
+    loadChildren: () => import('./movie/pages/new-movie/new-movie.module').then( m => m.NewMoviePageModule)
+  }
 
 
 ];
