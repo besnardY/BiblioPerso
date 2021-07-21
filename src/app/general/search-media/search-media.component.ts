@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angula
 import { Book } from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
 import { EventEmitter } from '@angular/core';
+import { MovieService } from 'src/app/services/movie.service';
 
 
 
@@ -12,12 +13,14 @@ import { EventEmitter } from '@angular/core';
 })
 export class SearchMediaComponent implements OnInit {
   @Output() datasBook = new EventEmitter();
+  @Output() datasMovie = new EventEmitter();
   @Input() item: string;
   book: any;
+  movie: any;
   isItemAvailable = false;
 
 
-  constructor(private bookServ: BookService) {}
+  constructor(private bookServ: BookService, private movieServ: MovieService) {}
 
   ngOnInit() {}
 
@@ -34,6 +37,17 @@ export class SearchMediaComponent implements OnInit {
     this.book = [];
   }
 
+  public setMovie(item: any) {
+     this.movieServ.getMoviebyApi(item.id).subscribe(
+      (datas) => {
+        this.datasMovie.emit(datas);
+
+      }, (err) => console.log(err)
+    );
+
+    this.movie = [];
+  }
+
   public search(term): void {
 
     switch (this.item) {
@@ -47,14 +61,16 @@ export class SearchMediaComponent implements OnInit {
         );
         break;
       case 'movie':
-console.log('coucou');
 
-        // this.movieServ.searchBook(term).subscribe(
-        //   (datas) => {
-        //     this.book = datas.items;
-        //   },
-        //   (err) => console.log(err)
-        // );
+        this.movieServ.searchId(term).subscribe(
+          (datas) => {
+            this.movie = datas.results;
+            console.log(datas.results);
+
+
+          },
+          (err) => console.log(err)
+        );
         break;
 
 

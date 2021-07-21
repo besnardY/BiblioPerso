@@ -1,6 +1,6 @@
-<!-- <form [formGroup]="MovieForm" (ngSubmit)="addNewMovie()" > -->
-  <app-search-media [item]="'movie'" ></app-search-media>
-<!--
+<form [formGroup]="movieForm" (ngSubmit)="addNewMovie()" >
+  <app-search-media [item]="'movie'" (datasMovie)="getNewMovie($event)" ></app-search-media>
+
     <ion-input type="hidden" name="image" formControlName="image"></ion-input>
 
   <ion-item>
@@ -13,40 +13,56 @@
 </div>
 
   <ion-item>
-    <ion-input type="text" name="authors" formControlName="authors"  placeholder="Enter author"></ion-input>
+    <ion-input type="text" name="directors" formControlName="directors"  placeholder="Enter directors"></ion-input>
   </ion-item>
-  <div *ngIf="submitted && f.authors.errors" class="alert">
-    <div *ngIf="f.authors.errors.required">
-      Authors is required.
+  <div *ngIf="submitted && f.directors.errors" class="alert">
+    <div *ngIf="f.directors.errors.required">
+      Directors is required.
+    </div>
+  </div>
+
+  <ion-item>
+    <ion-input type="text" name="writers" formControlName="writers"  placeholder="Enter writers"></ion-input>
+  </ion-item>
+  <div *ngIf="submitted && f.writers.errors" class="alert">
+    <div *ngIf="f.writers.errors.required">
+      Writers is required.
+    </div>
+  </div>
+
+  <ion-item>
+    <ion-input type="text" name="actors" formControlName="actors"  placeholder="Enter actors"></ion-input>
+  </ion-item>
+  <div *ngIf="submitted && f.actors.errors" class="alert">
+    <div *ngIf="f.actors.errors.required">
+      Actors is required.
     </div>
   </div>
 
     <ion-item>
-      <ion-label>Type</ion-label>
-      <ion-select [compareWith]="type" formControlName="style" interface="popover" >
-        <ion-select-option *ngFor="let item of type" [value]="item.name" >{{item.name}}</ion-select-option>
-      </ion-select>
+      <ion-label>Type: </ion-label>
+      <ion-input type="text" name="type" formControlName="type" ></ion-input>
     </ion-item>
-    <div *ngIf="submitted && f.style.errors" class="alert">
-      <div *ngIf="f.style.errors.required">
+    <div *ngIf="submitted && f.type.errors" class="alert">
+      <div *ngIf="f.type.errors.required">
         Type is required.
       </div>
     </div>
 
     <ion-item>
-      <ion-label>Categories</ion-label>
-      <ion-select multiple="true" [compareWith]="categories" formControlName="categories" interface="popover" >
-        <ion-select-option *ngFor="let item of categories" [value]="item.val" >{{item.val}}</ion-select-option>
-      </ion-select>
+      <ion-label>Genres: </ion-label>
+      <ion-input type="text" name="genres" formControlName="genres" ></ion-input>
     </ion-item>
-    <div *ngIf="submitted && f.categories.errors" class="alert">
-      <div *ngIf="f.categories.errors.required">
-        Categories is required.
+    <div *ngIf="submitted && f.genres.errors" class="alert">
+      <div *ngIf="f.genres.errors.required">
+        Genres is required.
       </div>
     </div>
 
+
+
   <ion-item>
-    <ion-input type="date"  formControlName="publishedDate" ></ion-input>
+    <ion-input type="date" name="releaseDate" formControlName="releaseDate" ></ion-input>
   </ion-item>
 
 
@@ -57,4 +73,4 @@
     <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
   </div>
 
-</form> -->
+</form>

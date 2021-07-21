@@ -60,7 +60,6 @@ export class BookService {
       return of([]);
     } else {
       const REQ = `${this.googleBookUrl}${title}`;
-
       return this.http.get<any>(REQ);
     }
   }

@@ -1,2 +1,8 @@
 Image no-image
 <a href='https://pngtree.com/so/picture-icons'>picture icons png from pngtree.com</a>
+Image film-roll
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+Image video-player
+<div>Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+image movie-850
+Icon by <a href='https://iconpacks.net/?utm_source=link-attribution&utm_content=850'>Iconpacks</a>

@@ -18,11 +18,13 @@ export class MovieService {
     this.userDoc = this.userServ.userDoc;
    }
 
-  searchId(title: string, type: string): Observable<any>{
+  searchId(title: string): Observable<any>{
+    console.log(title);
+
     if (!title.trim()) {
       return of([]);
     } else {
-      const REQ = `${this.imdbUrl}/Search${type}/${this.apiKey}/${title}`;
+      const REQ = `${this.imdbUrl}/Search/${this.apiKey}/${title}`;
 
       return this.http.get<any>(REQ);
     }
