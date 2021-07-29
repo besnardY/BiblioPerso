@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
 
       this.authServ.isLog = false;
       this.message = err.message;
-      console.log('coucou');
+
     });
   }
 
@@ -74,10 +74,12 @@ export class LoginComponent implements OnInit {
       this.message = '';
       return;
     }
-    console.log(values);
+
 
     this.authServ.createUser(values.login, values.pw).then(() => {
       this.message = 'Your account has been successfully created';
+    },err => {
+      this.message = err.message;
     });
   }
 }
