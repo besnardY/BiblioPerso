@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
@@ -24,15 +24,16 @@ export class AddVolumePage implements OnInit {
       this.sortedArray = this.volArr.sort((n1,n2) => n1 - n2);
     }
     this.volumeForm = new FormGroup({
-      vol: new FormControl('')
+      vol: new FormControl('', Validators.required)
     });
   }
 
 
   addVolume(){
-    let vol = this.volumeForm.value.vol;
+    const vol = this.volumeForm.value.vol;
 
-    if (vol !== '') {
+
+    if (vol !== ' ' && !this.volumeForm.invalid) {
       this.volArr.push(vol);
       this.sortedArray = this.volArr.sort((n1,n2) => n1 - n2);
       this.volumeForm.reset();
