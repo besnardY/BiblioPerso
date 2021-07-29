@@ -3,6 +3,7 @@ import { Book } from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
 import { EventEmitter } from '@angular/core';
 import { MovieService } from 'src/app/services/movie.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -18,14 +19,23 @@ export class SearchMediaComponent implements OnInit {
   book: any;
   movie: any;
   isItemAvailable = false;
-
+  searchForm: FormGroup;
 
   constructor(private bookServ: BookService, private movieServ: MovieService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.searchForm = new FormGroup({
+      search: new FormControl('', [Validators.required]),
+    });
+  }
 
-  public onKeyUp(ev: any) {
-    const val = ev.target.value;
+  public onKeyUp() {
+
+    const val = this.searchForm.value.search;
+    if (this.searchForm.invalid) {
+      return;
+    }
+
     if(val && val.trim !== ''){
       this.isItemAvailable = true;
       this.search(val);

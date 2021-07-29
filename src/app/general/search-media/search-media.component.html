@@ -1,13 +1,17 @@
 <div class="container">
-
-<ion-item>
-  <ion-input type="search" debounce="300" (ionChange)="onKeyUp($event)" placeholder="chercher un titre"></ion-input>
-</ion-item>
-<div class="collection" *ngIf="isItemAvailable && book">
-  <a class="collection-item" *ngFor="let item of book" (click)="setBook(item)">{{item.volumeInfo.title}} </a>
-</div>
-<div class="collection" *ngIf="isItemAvailable && movie">
-  <a class="collection-item" *ngFor="let item of movie" (click)="setMovie(item)">{{item.title}} </a>
-</div>
+  <form [formGroup]="searchForm" >
+    <ion-item>
+      <ion-input type="search" formControlName="search" placeholder="chercher un titre"></ion-input>
+      <ion-fab-button size="small"  class="ion-margin-start" (click)="onKeyUp()">
+        <ion-icon name="search"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+  </form>
+  <div class="collection" *ngIf="isItemAvailable && book">
+    <a class="collection-item" *ngFor="let item of book" (click)="setBook(item)">{{item.volumeInfo.title}} </a>
+  </div>
+  <div class="collection" *ngIf="isItemAvailable && movie">
+    <a class="collection-item" *ngFor="let item of movie" (click)="setMovie(item)">{{item.title}} </a>
+  </div>
 
 </div>
