@@ -10,8 +10,12 @@
   <div class="collection" *ngIf="isItemAvailable && book">
     <a class="collection-item" *ngFor="let item of book" (click)="setBook(item)">{{item.volumeInfo.title}} </a>
   </div>
+  
   <div class="collection" *ngIf="isItemAvailable && movie">
-    <a class="collection-item" *ngFor="let item of movie" (click)="setMovie(item)">{{item.title}} </a>
-  </div>
+    <div class="collection-item" *ngFor="let item of movie" (click)="setMovie(item)">
+      <ion-img *ngIf="item.image" [src]="item.image"></ion-img>
+      <p style="color: black;" >{{item.title}}</p>
 
+    </div>
+  </div>
 </div>

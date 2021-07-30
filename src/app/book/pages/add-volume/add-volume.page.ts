@@ -11,14 +11,14 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class AddVolumePage implements OnInit {
   book: Book;
-  volArr: Array<number> = new Array;
+  volArr: Array<number> = new Array();
   volumeForm: FormGroup;
   sortedArray: number[];
 
   constructor(private bookServ: BookService, private router: Router) { }
 
   ngOnInit() {
-    this.book = this.bookServ.getBook()
+    this.book = this.bookServ.getBook();
     if(this.book.volume !== undefined){
       this.volArr = this.book.volume;
       this.sortedArray = this.volArr.sort((n1,n2) => n1 - n2);

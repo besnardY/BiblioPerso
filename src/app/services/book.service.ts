@@ -29,7 +29,6 @@ export class BookService {
     private userServ: UserService
   ) {
     this.userDoc = this.userServ.userDoc;
-    console.log(this.userDoc);
   }
 
   getAllBook() {
