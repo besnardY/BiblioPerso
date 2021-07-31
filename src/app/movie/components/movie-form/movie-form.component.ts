@@ -74,22 +74,34 @@ export class MovieFormComponent implements OnInit {
     if (this.movieForm.invalid) {
       return;
     }
-    const author = this.movieForm.value.authors;
+    const directors = this.movieForm.value.directors;
+    const writers = this.movieForm.value.writers;
+    const actors = this.movieForm.value.actors;
+    const genres = this.movieForm.value.genres;
 
     // If only one authors make an Array of authors
-    if (typeof author === 'string') {
-      this.movieForm.value.authors = author.split(',');
+    if (typeof directors === 'string') {
+      this.movieForm.value.authors = directors.split(',');
+    }
+    if (typeof writers === 'string') {
+      this.movieForm.value.writers = writers.split(',');
+    }
+    if (typeof actors === 'string') {
+      this.movieForm.value.actors = actors.split(',');
+    }
+    if (typeof genres === 'string') {
+      this.movieForm.value.genres = genres.split(',');
     }
 
     switch(this.buttonText) {
       case 'Add': {
         this.movieServ.addMovie(this.movieForm.value);
-        this.router.navigate(['tabs/tab1']);
+        this.router.navigate(['tabs/tab2']);
          break;
       }
       case 'Update': {
         this.movieServ.updateMovie(this.movieForm.value);
-        this.router.navigate(['tabs/tab1']);
+        this.router.navigate(['tabs/tab2']);
          break;
       }
       default: {
