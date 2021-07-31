@@ -13,7 +13,7 @@ import { Book } from '../../models/book.model';
 export class Tab1Page {
 
   bookList: Array<Book>;
-  icon = '';
+  type = 'book';
 
   constructor(private bookServ: BookService, private navCtrl: NavController) {
     this.bookServ.getAllBook().subscribe((datas => {
