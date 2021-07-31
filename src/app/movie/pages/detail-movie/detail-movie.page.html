@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Movie detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button size="small">
+    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list>
+    <!-- <ion-fab-button color="light" [routerLink]="['/edit-book']" routerLinkActive="router-link-active">
+		<ion-icon name="create"></ion-icon>
+    </ion-fab-button> -->
+    <ion-fab-button color="light" (click)="deleteMovie()">
+		<ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="light" [routerLink]="['/borrow-movie']" routerLinkActive="router-link-active">
+		<ion-icon name="person-add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+<ion-content>
+
+  <div class="container">
+    <ion-card>
+
+      <ion-row style="justify-content: center;">
+        <ion-img [src]="movie.image"></ion-img>
+      </ion-row>
+
+      <ion-item>
+        <p>Title:
+          <span> {{movie.title}}, </span>
+        </p>
+      </ion-item>
+      <ion-item>
+        <p>Directors(s):
+          <span> {{movie.directors}}, </span>
+        </p>
+      </ion-item>
+      <ion-item>
+        <p>Writer(s):
+          <span *ngFor="let writers of movie.writers"> {{writers}}, </span>
+        </p>
+      </ion-item>
+      <ion-item>
+        <p>Actor(s):
+          <span *ngFor="let actors of movie.actors"> {{actors}}, </span>
+        </p>
+      </ion-item>
+
+      <ion-item>
+        <p>Release : {{movie.releaseDate | date: 'dd MMM yyyy'}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p>Type : <span >{{movie.type}}</span> </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-row class="ion-align-items-center">
+          <ion-label>Genre(s) :</ion-label>
+          <ion-chip *ngFor="let genres of movie.genres">
+            <ion-label>{{genres}}</ion-label>
+          </ion-chip>
+        </ion-row>
+      </ion-item>
+
+      <!-- <app-add-volume [volume]="book.volume"></app-add-volume> -->
+
+      <!-- <ion-item *ngIf="book.style === 'Manga' || book.style === 'BD'" >
+        <ion-row class="ion-align-items-center">
+          <ion-label>Volume:</ion-label>
+          <ion-fab-button size="small" [routerLink]="['/add-volume']" routerLinkActive="router-link-active" class="ion-align-items-center"><ion-icon size="large" name="add-circle-outline"></ion-icon></ion-fab-button>
+          <div *ngIf="book.volume !== undefined" >
+            <ion-chip *ngFor="let vol of book.volume">
+              <ion-label>{{vol}}</ion-label>
+            </ion-chip>
+          </div>
+        </ion-row>
+      </ion-item> -->
+
+
+      <ion-item>
+        <ion-label>Borrowing: </ion-label>
+        <ion-checkbox [checked]="movie.borrowing" disabled="true"></ion-checkbox>
+      </ion-item>
+
+      <ion-item *ngIf="movie.borrowing === true">
+        <ion-row>
+          <ion-col size="12">Borrowing by : {{movie.borrowerName}}</ion-col>
+          <ion-col size="12">le : {{movie.borrowingDate | date: 'dd MMM yyyy'}}</ion-col>
+          <ion-col size="12" class="ion-text-center">
+            <ion-button (click)="giveBackMovie()">Give back</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+    </ion-card>
+  </div>
+</ion-content>
