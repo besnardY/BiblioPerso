@@ -10,6 +10,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { BookListPropComponent } from '../book/components/book-list-prop/book-list-prop.component';
+import { MovieListPropComponent } from '../movie/components/movie-list-prop/movie-list-prop.component';
 
 
 
@@ -19,7 +20,7 @@ import { BookListPropComponent } from '../book/components/book-list-prop/book-li
   imports: [ CommonModule, FormsModule, IonicModule,  MatExpansionModule,
     MatIconModule,
     MatGridListModule,],
-  declarations: [ExploreContainerComponent,BookListPropComponent ],
+  declarations: [ExploreContainerComponent,BookListPropComponent, MovieListPropComponent ],
   exports: [ExploreContainerComponent]
 })
 export class ExploreContainerComponentModule {}

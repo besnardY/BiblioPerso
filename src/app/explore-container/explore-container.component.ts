@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { StringDecoder } from 'string_decoder';
+import { Book } from '../models/book.model';
+import { Movie } from '../models/movie.model';
 
 
 @Component({
@@ -10,12 +13,10 @@ export class ExploreContainerComponent implements OnInit {
 
   @Input() name: string;
   @Input() list: Array<any>;
-  @Input() icon: string;
+  @Input() type: string;
 
   constructor(  ) { }
 
   ngOnInit() {}
-
-
 
 }

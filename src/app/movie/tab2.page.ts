@@ -10,7 +10,8 @@ import { MovieService } from '../services/movie.service';
 })
 export class Tab2Page {
 
-  movieList;
+  movieList: Array<Movie>;
+  type = 'movie';
 
   constructor(private navCtrl: NavController, private movieServ: MovieService) {
     this.movieServ.getAllMovie().subscribe((datas => {

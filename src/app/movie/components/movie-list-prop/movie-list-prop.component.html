@@ -1,0 +1,29 @@
+<ion-grid>
+  <ion-row>
+    <ion-col [size]="4"> <ion-img [src]="item.image" ></ion-img></ion-col>
+
+    <ion-col [size]="8">
+      <p>Director:
+        <span> {{item.directors}}, </span>
+      </p>
+      <p>Writers:
+        <span> {{item.writers}}, </span>
+      </p>
+      <p>Actors:
+        <span > {{item.actors}}, </span>
+      </p>
+      <p>Release: {{item.releaseDate | date: 'dd MMM yyyy'}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="item.borrowing === true">
+    <ion-col size="12">Borrowing by : {{item.borrowerName}}</ion-col>
+    <ion-col size="12">le : {{item.borrowingDate| date: 'dd MMM yyyy'}}</ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12" class="ion-text-center"><a (click)="selectMovie(item)">More info</a>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>

@@ -33,7 +33,15 @@ const routes: Routes = [
   {
     path: 'new-movie',
     loadChildren: () => import('./movie/pages/new-movie/new-movie.module').then( m => m.NewMoviePageModule)
-  }
+  },
+  {
+    path: 'detail-movie',
+    loadChildren: () => import('./movie/pages/detail-movie/detail-movie.module').then( m => m.DetailMoviePageModule)
+  },
+  {
+    path: 'borrow-movie',
+    loadChildren: () => import('./movie/pages/borrow-movie/borrow-movie.module').then( m => m.BorrowMoviePageModule)
+  },
 
 
 ];

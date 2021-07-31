@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     component: Tab2Page,
   },
+  
+
+
+
 ];
 
 @NgModule({
